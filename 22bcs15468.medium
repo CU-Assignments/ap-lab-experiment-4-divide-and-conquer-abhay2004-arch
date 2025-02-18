@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int maxSum = nums[0];  // Initialize with the first element
+        int currentSum = 0;  // Start with 0
+
+        for (int num : nums) {
+            if (currentSum < 0) currentSum = 0;  // Reset if the current sum is negative
+            currentSum += num;  // Add the current number
+            maxSum = max(maxSum, currentSum);  // Update maxSum
+        }
+
+        return maxSum;
+    }
+};
